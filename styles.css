@@ -212,7 +212,6 @@ h3 {
 .main {
     grid-area: 2 / 2 / 3 / 3;
     background-color: rgb(91, 159, 161);
-
     display: grid;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-columns: 2.4fr 1.2fr;
@@ -349,4 +348,3 @@ h4, .mainCard h2 {
 .username, .accountName {
     margin-left: 25px;
 }
-
