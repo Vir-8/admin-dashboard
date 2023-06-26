@@ -1,23 +1,164 @@
 body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 1fr minmax(3.5fr, 675px);
     grid-template-columns: minmax(230px, 1fr) 4fr;   
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h3 {
+    margin-top: 0;
 }
 
 .header {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: aquamarine;
+    max-height: 200px;
+    background-color: rgb(13, 134, 94);
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
 }
+
+.headerTop {
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.headerTop .searchBar img {
+    height: 35px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.headerBottom {
+    grid-row: 2 / 3;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+}
+
+.searchBar {
+    margin-top: 20px;
+    font-size: 16px;
+    grid-column: 1 / 2;
+}
+
+#search {
+    width: calc(100% - 60px);
+    height: 30px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 20px;
+}
+
+.profile {
+    grid-column: 2 / 3;
+    margin-top: 20px;
+    margin-left: 20px;
+
+    display: grid;
+    grid-template-columns: 0.7fr 0.8fr 1fr;
+}
+
+.profile .pfp {
+    height: 50px;
+    border-radius: 25px;
+}
+
+.notifs {
+    grid-column: 1 / 2;
+    height: 35px;
+}
+
+.pfp {
+    grid-column:  2 / 3;
+}
+
+.admin {
+    grid-column: 3 / 4;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+.headerBottomLeft {
+
+    max-height: 84px;
+    grid-column: 1 / 2;
+
+    display: grid;
+    grid-template-columns: 0.7fr 3fr;
+    grid-template-rows: 1fr 4fr;
+}
+
+.greeting {
+    font-size: medium;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.name {
+    font-size: 30px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    margin: 0;
+}
+
+.pfpMain {
+    grid-area: 1 / 1 / 3 / 2;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    height: 80px;
+    border-radius: 20px;
+}
+
+.headerBottomRight {
+    grid-column: 2 / 3;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 8px;
+}
+
+
+.headerBottomRight button {
+    height: 60%;
+    align-self: center;
+    border-radius: 17px;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+
+    background-color: rgb(89, 230, 255);
+    border: 1px solid rgb(83, 83, 83);
+}
+
+.headerBottomRight button:hover {
+    background-color:#3caaf3;
+    transition: 0.4s;
+}
+
+.headerBottomRight button:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 2px rgb(196, 195, 195);
+}
+
+
 
 .sidebar {
     grid-area: 1 / 1 / 3 / 2;
-    background-color: #34d399;
+    background-color: #10b981;
+    
     display: grid;
-    grid-template-rows: 1fr 6fr 4fr;
+    grid-template-rows: 100px 350px 200px;
 }
 
 .sidebarHeading {
@@ -27,6 +168,8 @@ body {
 
 .settings {
     grid-row: 2 / 3;
+    margin-top: 20px;
+    max-height: 250px;
 }
 
 .moreSettings {
@@ -39,7 +182,7 @@ body {
 }
 
 .settings, .moreSettings {
-    color: #09362a;
+    color: #041a0c;
 }
 
 .sidebar img {
@@ -52,12 +195,59 @@ body {
     vertical-align: middle;
 }
 
-.sidebar h2:hover {
-    color: #022c22;
-    font-size: 25px;
+.element {
+    box-sizing: border-box;
+    padding: 1px;
+    padding-left: 0px;
 }
+
+
+.sidebar .element:hover {
+    transition: 0.1s;
+    color: #024746;
+    font-size: 20px;
+}
+
 
 .main {
     grid-area: 2 / 2 / 3 / 3;
-    background-color: cadetblue;
+    background-color: rgb(91, 159, 161);
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 2.4fr 1fr;
+}
+
+.mainContent {
+    grid-area: 1 / 1 / 3 / 2;
+}
+
+.mainContent h2 {
+    margin-left: 10px;
+}
+
+.mainContentContainer {
+    margin: 10px;
+    margin-left: 15px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 20px;
+}
+
+.mainCard {
+    background-color: #5f5e5e;
+    height: 200px;
+    width: 300px;
+
+    border-radius: 25px;
+    border-left: 10px solid rgb(48, 212, 122);
+}
+
+.announcementContainer {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.trendingContainer {
+    grid-area: 2 / 2 / 3 / 3;
 }
